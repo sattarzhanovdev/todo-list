@@ -1,0 +1,43 @@
+.container{
+  margin: 0 50px;
+  .register_card{
+    background: whitesmoke;
+    height: 100%;
+    padding-bottom: 5px;
+    h4{
+      margin: 0 30px;
+      padding-top: 10px;
+      position: relative;
+    }
+    form{
+      margin: 30px 30px;
+      div{
+        input{
+          width: 100%;
+          padding: 15px 0;
+          margin-bottom: 15px;
+          outline: none;
+        }
+      }
+      .register_btn{
+        width: 100%;
+        button{
+          padding: 15px 0;
+          background-color: #4087fb;
+          width: 100%;
+          border:0;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .link_register{
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
