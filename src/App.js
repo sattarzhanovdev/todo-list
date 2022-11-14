@@ -3,6 +3,8 @@ import './App.scss'
 import { MainComponents } from './Components/MainComponents'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { AuthPages } from './Pages/AuthPages'
+import Admin from './Pages/MainPages/Admin'
+import { MainPages } from './Pages/MainPages'
 
 const App = () => {
   const accessToken = localStorage.getItem('accessToken')
@@ -17,6 +19,14 @@ const App = () => {
     <div>
       <MainComponents.Component.Header />
       <Routes>
+        <Route 
+          path='/'
+          element={<MainPages.Pages.Main />}
+        />
+        <Route 
+          path='/admin'
+          element={<MainPages.Pages.Admin />}
+        />
         <Route 
           path='/auth/register' 
           element={<AuthPages.Pages.Register />}

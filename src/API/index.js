@@ -3,7 +3,7 @@ const BASE_URL = 'https://todo-itacademy.herokuapp.com/api'
 export const API = {
   getTodos: (accessToken) => {
     return fetch(`${BASE_URL}/todos`, {
-      method: 'GET',
+      method:'GET',
       headers: {
         'Content-Type': 'application/json',
         'Authorization':`Bearer ${accessToken}`
@@ -19,6 +19,16 @@ export const API = {
         'Authorization':`Bearer ${accessToken}`
       },
       body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+  },
+  deleteTodo: (id, accessToken) => {
+    return fetch(`${BASE_URL}/todos/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':`Bearer ${accessToken}`
+      },
     })
       .then(res => res.json())
   },
@@ -42,8 +52,8 @@ export const API = {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email,
-        password
+        email: email,
+        password: password
       })
     })
       .then(res => res.json())

@@ -1,0 +1,21 @@
+.todoCounter{
+  margin: 0 50px;
+  h1{
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 50px;
+    span{
+      color: #4087fb;
+    }
+  }
+  .todos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    h1{
+      font-size: 32px;
+      color: black;
+    }
+  }
+}

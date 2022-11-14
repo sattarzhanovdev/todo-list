@@ -13,44 +13,45 @@ const Header = () => {
   const navigate = useNavigate()
 
   const signOut = () => {
-    API.signOut({refreshToken})
-    .then(() => {
-      localStorage.clear()
-      setToggle(!toggle)
-      navigate('/auth/register')
-    })
+    API.signOut(refreshToken)
+      .then(() => {
+        localStorage.clear()
+        setToggle(!toggle)
+        navigate('/auth/register')
+      })
   }
 
   return (
-    <nav className={toggle && cls.toggle}>
+    <nav className={toggle ? cls.toggle : ''}>
       <div className={cls.navbar}>
         <div>
           <Link to='/'>TODO API</Link>
         </div>
 
-       <div className={toggle ? cls.active : cls.buttons}>
+      <div className={toggle ? cls.active : cls.buttons}>
         <Link 
           onClick={() => setToggle(!toggle)} 
           to='/admin' 
-          className={cls.btn_success}
+          className={cls.green}
         >
           <MdAdminPanelSettings /> Admin 
         </Link>
         <Link
-          className={cls.btn_danger}
           onClick={() => signOut()}
+          className={cls.red}
         >
           <GoSignOut/> Sign out
         </Link>
        </div>
 
-       {
-         user && (
-          <div className={cls.burger}>
-            <RiMenu3Line onClick={() => setToggle(!toggle)}/>
-          </div>
-         )
-       }
+        {
+          user ? (
+            <div className={cls.burger}>
+              <RiMenu3Line onClick={() => setToggle(!toggle)}/>
+            </div>
+          )
+          : null
+        }
       </div>
     </nav>
   )

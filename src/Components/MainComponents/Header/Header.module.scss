@@ -18,18 +18,37 @@ nav{
       color: white;
       text-decoration: none;
     }
+    .active{
+      display: flex;
+      position: absolute;
+      bottom: 10%;
+      .red{
+        padding: 10px 20px;
+        font-size: 13px;
+        border: 0;
+        border-radius: 5px;
+        font-weight: bold;
+        background: #db4437;
+        color: white;
+        cursor: pointer;
+      }
+      .green{
+        background: #0f9d58;
+        color: white;
+        margin-right: 10px;
+        padding: 10px 20px;
+        font-size: 13px;
+        cursor: pointer;
+        border:0;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+    }
     .buttons{
       position: absolute;
       top: 60%;
       display: none;
-      button{
-        display: flex;
-        align-items: center;
-        svg{
-          font-size: 20px;
-        }
-      }
-      .btn_danger{
+      .button{
         background: #db4437;
         color: white;
         padding: 10px 20px;
@@ -50,12 +69,6 @@ nav{
         font-weight: bold;
         border-radius: 5px;
       }
-    }
-
-    .active{
-      display: flex;
-      top: inherit;
-      bottom: 10%;
     }
 
     .burger{

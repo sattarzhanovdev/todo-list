@@ -1,7 +1,9 @@
+import AdminComponent from "./AdminComponent";
 import Header from "./Header";
 
 const Component = {
-  Header
+  Header,
+  AdminComponent
 }
 
 export const MainComponents = {

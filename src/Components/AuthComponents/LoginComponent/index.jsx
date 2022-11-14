@@ -12,14 +12,16 @@ const LoginComponent = () => {
   const handleLogin = () => {
     if(email.length !== 0 && password.length !== 0){
       API.login(email , password)
-      .then(res => {
-        localStorage.setItem('accessToken', res.accessToken)
-        localStorage.setItem('refreshToken', res.refreshToken)
-        localStorage.setItem('user' , JSON.stringify(res.user))
-        localStorage.setItem('isActivated' , res.user.isActivated)
-        
-        navigate('/')
-      })
+        .then(res => {
+          localStorage.setItem('accessToken', res.accessToken)
+          localStorage.setItem('refreshToken', res.refreshToken)
+          localStorage.setItem('user' , JSON.stringify(res.user))
+          localStorage.setItem('isActivated' , res.user.isActivated)
+
+          setTimeout(() => {
+            navigate('/')
+          }, 2000);
+        })
     }
   }
 
@@ -38,7 +40,15 @@ const LoginComponent = () => {
             <input type='password' placeholder='Password *' defaultValue={password} onChange={e => setPassword(e.target.value)} />
           </div>
           <div className={cls.register_btn}>
-            <button onClick={() => handleLogin()} className={cls.btn_primary}>Authotization</button>
+            <button 
+              onClick={e => {
+                e.preventDefault()
+                handleLogin()
+              }}
+              className={cls.btn_primary}
+            >
+              Authotization
+            </button>
           </div>
         </form>
 
