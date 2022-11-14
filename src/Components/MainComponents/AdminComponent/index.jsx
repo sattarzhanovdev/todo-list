@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { API } from '../../../API'
 import cls from './AdminComponent.module.scss'
 
@@ -11,9 +11,16 @@ const AdminComponent = () => {
 
   const accessToken = localStorage.getItem('accessToken')
 
+  const navigate = useNavigate()
+
   const postTodo = () => {
     if(title.length !== 0 || content.length !== 0 || date.length !== 0){
       API.createTodo(accessToken, {title, content, date})
+      setError('Successfully created!')
+
+      setTimeout(() => {
+        navigate('/')
+      }, 2000)
     }else{
       setError('Fill the area!')
     }
@@ -21,15 +28,13 @@ const AdminComponent = () => {
 
   return (
     <div className={cls.container}>
-      <div className={cls.error}>
-        {
-          error ? 
-          <li>
-            {error && error}
-          </li>
-          :
-          ''
-        }
+      <div 
+        className={error !== '' ? cls.error : cls.error_disabled}
+        id={error === 'Successfully created!' ? cls.success : ''}
+      >
+        <li>
+          {error ? error : ''}
+        </li>
       </div>
       <div className={cls.admin}>
         <h4>Admin</h4>

@@ -24,7 +24,7 @@ const TodoCounter = () => {
 
       <div className={cls.todos}>
         {
-          base?.length === 0 ? 
+          base?.todosCount !== 0 ? 
           base?.todos.map(item => (
             <TodoCard
               key={item.id} 

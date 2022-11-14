@@ -32,6 +32,38 @@ export const API = {
     })
       .then(res => res.json())
   },
+  completeTodo: (id, accessToken) => {
+    return fetch(`${BASE_URL}/todos/${id}/completed`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':`Bearer ${accessToken}`
+      },
+    })
+      .then(res => res.json())
+  },
+  editTodo: (id, accessToken, data) => {
+    return fetch(`${BASE_URL}/todos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':`Bearer ${accessToken}`
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+  },
+  getSingleTodo: (id, accessToken, data) => {
+    return fetch(`${BASE_URL}/todos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':`Bearer ${accessToken}`
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+  },
   registration: (email, password) => {
     return fetch(`${BASE_URL}/registration`, {
       method: 'POST',

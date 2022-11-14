@@ -1,0 +1,83 @@
+.card{
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  margin-bottom: 30px;
+  .date{
+    font-size: 10px;
+    margin: 0;
+    position: absolute;
+    top: 8%;
+  }
+  .completed{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    @media screen and (max-width: 425px) {
+      top: 18%;
+    }
+  }
+  img{
+    width: 30px;
+  }
+  .card_header{
+    text-align: center;
+    @media screen and (max-width: 425px) {
+      text-align: right;
+      margin-right: 20px;
+    }
+  }
+  .card_body{
+    padding:0 20px;
+
+  }
+  .card_input{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 50%;
+    margin-left: 15px;
+    
+    input{
+      width: 80%;
+      padding: 10px 20px;
+      margin-bottom: 10px;
+    } 
+  }
+  .change_btn{
+    text-align: center;
+    button{
+      background: #4087fb;
+      border:0;
+      color:white;
+      cursor: pointer;
+      width: 33.3%;
+      padding: 5px 0;
+    }
+  }
+  .card_footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    button{
+      border:0;
+      color:white;
+      cursor: pointer;
+      width: 33.3%;
+      padding: 10px 0;
+      &:nth-child(1){
+        background: #db4437;
+      }
+      &:nth-child(2){
+        background: #0f9d58;
+      }
+      &:nth-child(3){
+        background: #4087fb;
+      }
+      svg{
+        font-size: 20px;
+      }
+    }
+  }
+}

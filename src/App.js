@@ -3,7 +3,6 @@ import './App.scss'
 import { MainComponents } from './Components/MainComponents'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { AuthPages } from './Pages/AuthPages'
-import Admin from './Pages/MainPages/Admin'
 import { MainPages } from './Pages/MainPages'
 
 const App = () => {
@@ -13,7 +12,7 @@ const App = () => {
 
   React.useEffect(() => {
     accessToken ? navigate('/') : navigate('/auth/login')
-  }, [])
+  }, [accessToken])
 
   return (
     <div>

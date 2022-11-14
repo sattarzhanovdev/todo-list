@@ -8,7 +8,32 @@
     right: 10%;
     top: 12%;
     list-style: none;
+    opacity: 1;
     background: #db4437;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    transition: .5s;
+  }
+  .error_disabled{
+    position: absolute;
+    right: 0;
+    top: 12%;
+    list-style: none;
+    opacity: 0;
+    background: #db4437;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    transition: .5s;
+  }
+  #success{
+    position: absolute;
+    right: 10%;
+    top: 12%;
+    list-style: none;
+    opacity: 1;
+    background: green;
     border-radius: 10px;
     color: #fff;
     padding: 10px;
