@@ -42,16 +42,16 @@ const TodoCard = ({key, item, setDependence}) => {
 
   return (
     <div 
-      key={key} 
       className={cls.card}
     >
-      {item.completed ?
-        <img 
-          className={cls.completed} 
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png'
-        />
+      {
+        item.completed ?
+          <img 
+            className={cls.completed} 
+            src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png'
+          />
         :
-        null
+          null
       }
       <div className={cls.card_header}>
         <h3>{item.title}</h3>
@@ -67,7 +67,8 @@ const TodoCard = ({key, item, setDependence}) => {
           showInput ? 
             <p>Change title to:</p> 
           :
-            null}
+            null  
+        }
         {
           showInput ?
             <input 

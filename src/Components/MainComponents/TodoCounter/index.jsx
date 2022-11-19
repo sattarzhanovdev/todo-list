@@ -13,21 +13,21 @@ const TodoCounter = () => {
   React.useEffect(() => {
     API.getTodos(accessToken)
       .then(res => {
-        setBase(res)
+        setBase(res.data)
         setDependence('HELLO')
       })
   }, [dependence])
 
   return (
     <div className={cls.todoCounter}>
-      <h1>Todo count: <span>{base && base.todosCount}</span></h1>
+      <h1>Todo count: <span>{base && base?.todosCount}</span></h1>
 
       <div className={cls.todos}>
         {
           base?.todosCount !== 0 ? 
-          base?.todos.map(item => (
+          base?.todos.map((item, i) => (
             <TodoCard
-              key={item.id} 
+              key={i} 
               item={item} 
               setDependence={setDependence}
             />

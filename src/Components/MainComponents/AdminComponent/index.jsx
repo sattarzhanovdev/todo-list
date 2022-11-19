@@ -16,13 +16,20 @@ const AdminComponent = () => {
   const postTodo = () => {
     if(title.length !== 0 || content.length !== 0 || date.length !== 0){
       API.createTodo(accessToken, {title, content, date})
-      setError('Successfully created!')
 
       setTimeout(() => {
         navigate('/')
       }, 2000)
     }else{
-      setError('Fill the area!')
+      if(title.length === 0){
+        setError('Fill the area!')
+      }else if(content.length === 0){
+        setError('Fill the area!')
+      }else if(date.length === 0){
+        setError('Fill the area!')
+      }else{
+        setError('Fill the area!')
+      }
     }
   }
 
