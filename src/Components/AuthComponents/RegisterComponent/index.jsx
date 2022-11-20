@@ -6,22 +6,25 @@ import cls from './RegisterComponent.module.scss'
 const RegisterComponent = () => {
   const [email , setEmail] = React.useState('')
   const [password , setPassword] = React.useState('')
-  const [ alertActive, setAlertActive] = React.useState(false)
+  const [messageActive, setMessageActive] = React.useState(false)
 
   const navigate = useNavigate()
   
   const handleRegister = () => {
-    API.registration(email , password)
+    API.registration(email, password)
       .then(res => {
-        setAlertActive(true)
-        localStorage.setItem('accessToken', res.accessToken)
-        localStorage.setItem('refreshToken', res.refreshToken)
-        localStorage.setItem('isActivated' , res.user.isActivated)
-        localStorage.setItem('user' , JSON.stringify(res.user)) 
+        setMessageActive(true)
+        localStorage.setItem('accessToken', res.data.accessToken)
+        localStorage.setItem('refreshToken', res.data.refreshToken)
+        localStorage.setItem('isActivated' , res.data.user.isActivated)
+        localStorage.setItem('user' , JSON.stringify(res.data.user)) 
 
         setTimeout(() => {
           navigate('/auth/login')
         }, 2000)
+      })
+      .catch(e => {
+        console.log(e.message);
       })
   }
 
@@ -60,7 +63,7 @@ const RegisterComponent = () => {
         </form>
         
         {
-          alertActive ?
+          messageActive ?
           <div className={cls.alert}>
             <div>На вашу почту отправлено, ссылка на активацию аккаунта</div>
             <p>Прежде чем перейти на Главную, активируйте аккаунт</p>

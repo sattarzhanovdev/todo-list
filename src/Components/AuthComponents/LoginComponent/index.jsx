@@ -13,10 +13,11 @@ const LoginComponent = () => {
     if(email.length !== 0 && password.length !== 0){
       API.login(email , password)
         .then(res => {
-          localStorage.setItem('accessToken', res.accessToken)
-          localStorage.setItem('refreshToken', res.refreshToken)
-          localStorage.setItem('user' , JSON.stringify(res.user))
-          localStorage.setItem('isActivated' , res.user.isActivated)
+          localStorage.setItem('accessToken', res.data.accessToken)
+          localStorage.setItem('refreshToken', res.data.refreshToken)
+          localStorage.setItem('user' , JSON.stringify(res.data.user))
+          localStorage.setItem('isActivated' , res.data.user.isActivated)
+          localStorage.setItem('error', res.data.message)
 
           setTimeout(() => {
             navigate('/')
