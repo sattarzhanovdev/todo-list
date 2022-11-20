@@ -28,7 +28,7 @@ const LoginComponent = () => {
   return (
     <div className={cls.container}>
       <div className={cls.register_card}>
-        <h4>Authotization</h4>
+        <h4>Authorization</h4>
 
         <hr />
 
